@@ -1,0 +1,17 @@
+{
+  "name": "me_autobuses_timetable_fullstack",
+  "version": "1.0.0",
+  "description": "AutoBuses frontend layout on Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "work": "code .",
+    "test": "echo \"no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "normalize.css": "^8.0.1"
+  }
+}
