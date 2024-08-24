@@ -32,33 +32,47 @@ const getTimetable = async () => {
 };
 
 const createRow = (bus) => {
-  const { id, busNumber, startPoint, endPoint, firstDepartureTime } = bus;
+  const {
+    id,
+    busNumber,
+    startPoint,
+    endPoint,
+    firstDepartureTime,
+    frequencyMinutes,
+  } = bus;
 
   const row = document.createElement("tr");
   row.classList = "tr";
 
   const cellNumber = document.createElement("td");
   cellNumber.classList = "route-number";
-  cellNumber.textContent = busNumber;
-  cellNumber.title = `Номер маршрута ${busNumber}`
+  cellNumber.classList.add("text-end");
+  cellNumber.textContent = `№ ${busNumber}`;
+  cellNumber.title = `Номер маршрута ${busNumber}`;
 
   const cellRoute = document.createElement("td");
-  cellRoute.classList.add('route')
+  cellRoute.classList.add("route");
+  cellRoute.classList.add("text-start");
   cellRoute.textContent = `${startPoint} -> ${endPoint}`;
   cellRoute.title = `Маршрут автобуса от ${startPoint} до ${endPoint}`;
-  
+
   const cellDate = document.createElement("td");
-  cellDate.classList.add('date')
+  cellDate.classList.add("date");
   const todayDate = new Date().toLocaleDateString(); // todo
   cellDate.textContent = todayDate;
   cellDate.title = `Дата отправления ${todayDate}`;
-  
+
   const cellTime = document.createElement("td");
-  cellTime.classList.add('departure-time')
+  cellTime.classList.add("departure-time");
   cellTime.textContent = firstDepartureTime;
   cellTime.title = `Начало движения в ${firstDepartureTime}`;
 
-  row.append(cellNumber, cellRoute, cellDate, cellTime);
+  const cellInterval = document.createElement('td');
+  cellInterval.classList.add('interval');
+  cellInterval.textContent = `${frequencyMinutes} минут`;
+  cellInterval.title = `Интервал движения автобуса ${frequencyMinutes} минут`;
+  
+  row.append(cellNumber, cellRoute, cellDate, cellTime, cellInterval);
   return row;
 };
 
