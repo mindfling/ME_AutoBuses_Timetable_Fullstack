@@ -4,8 +4,7 @@
   "description": "simple repeat aft Maks",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "bus",
@@ -20,7 +19,6 @@
   "author": "Leskin",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3",
     "express": "^4.19.2",
     "luxon": "^3.5.0"
   }
