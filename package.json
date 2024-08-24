@@ -4,7 +4,8 @@
   "description": "simple repeat aft Maks",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "bus",
@@ -21,5 +22,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "luxon": "^3.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
