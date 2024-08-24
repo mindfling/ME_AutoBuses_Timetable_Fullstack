@@ -31,7 +31,7 @@ const getTimetable = async () => {
   return timetable;
 };
 
-const createRow = (bus) => {
+const createRow = (bus, index) => {
   const {
     id,
     busNumber,
@@ -44,16 +44,27 @@ const createRow = (bus) => {
   const row = document.createElement("tr");
   row.classList = "tr";
 
+  const cellIndex = document.createElement('td');
+  cellIndex.classList.add('text-secondary')
+  cellIndex.textContent = index;
+
+  const cellID = document.createElement('td');
+  cellID.classList = 'id';
+  cellID.textContent = id;
+  cellID.title = 'id of bus is ' + id;
+
   const cellNumber = document.createElement("td");
   cellNumber.classList = "route-number";
   cellNumber.classList.add("text-end");
-  cellNumber.textContent = `№ ${busNumber}`;
+  cellNumber.innerHTML = `<span class="text-secondary">№</span> ${busNumber}`;
   cellNumber.title = `Номер маршрута ${busNumber}`;
 
   const cellRoute = document.createElement("td");
   cellRoute.classList.add("route");
   cellRoute.classList.add("text-start");
-  cellRoute.textContent = `${startPoint} -> ${endPoint}`;
+  cellRoute.classList.add("text-white");
+  // cellRoute.textContent = `${startPoint} -> ${endPoint}`;
+  cellRoute.innerHTML = `<span class="text-secondary">от</span> ${startPoint} <span class="text-secondary">до</span> ${endPoint}`;
   cellRoute.title = `Маршрут автобуса от ${startPoint} до ${endPoint}`;
 
   const cellDate = document.createElement("td");
@@ -72,7 +83,7 @@ const createRow = (bus) => {
   cellInterval.textContent = `${frequencyMinutes} минут`;
   cellInterval.title = `Интервал движения автобуса ${frequencyMinutes} минут`;
   
-  row.append(cellNumber, cellRoute, cellDate, cellTime, cellInterval);
+  row.append(cellIndex, cellID, cellNumber, cellRoute, cellDate, cellTime, cellInterval);
   return row;
 };
 
@@ -82,7 +93,7 @@ const createRow = (bus) => {
   const buses = await getTimetable();
   console.log("buses: ", buses);
 
-  const rows = buses.map((bus) => createRow(bus));
+  const rows = buses.map((bus, i) => createRow(bus, i));
 
   result.append(...rows);
 })();
