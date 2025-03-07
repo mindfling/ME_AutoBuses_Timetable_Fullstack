@@ -104,6 +104,14 @@
     "frequencyMinutes": 85
   },
   {
+    "id": 1234,
+    "busNumber": "1234",
+    "startPoint": "г. Калининград",
+    "endPoint": "г. Гусев",
+    "firstDepartureTime": "18:40",
+    "frequencyMinutes": 85
+  },
+  {
     "id": 24,
     "busNumber": "113",
     "startPoint": "г. Калининград",
@@ -190,5 +198,14 @@
     "endPoint": "г. Гданьск(Польша)",
     "firstDepartureTime": "08:30",
     "frequencyMinutes": 1440
+  },
+  {
+    "id": 255,
+    "busNumber": "255",
+    "startPoint": "г. Калининград",
+    "endPoint": "г. Гданьск (somewhere)",
+    "firstDepartureTime": "18:30",
+    "frequencyMinutes": 1440
   }
+
 ]
